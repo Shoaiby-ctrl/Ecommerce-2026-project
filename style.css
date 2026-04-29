@@ -314,14 +314,50 @@ body {
     font-size: 0.9rem;
 }
 
+/* Hamburger Icon - Hidden on desktop */
+.menu-toggle {
+    display: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
 /* Mobile Responsiveness */
 /* --- NEW Mobile Responsiveness Fix --- */
 @media (max-width: 768px) {
     /* 1. Fix Navigation */
-    .navbar { flex-direction: column; gap: 15px; padding: 15px; }
-    .nav-links { display: none; }
-    .nav-buttons { display: flex; flex-direction: column; width: 100%; gap: 10px; }
-    .nav-buttons a { text-align: center; width: 100%; }
+   /* 1. Fix Navigation for Mobile */
+   .navbar { 
+    flex-direction: column; 
+    align-items: flex-start; /* Aligns logo to the left */
+    padding: 20px; 
+    position: relative;
+}
+
+/* Position the hamburger icon to the top right */
+.menu-toggle { 
+    display: block; 
+    position: absolute; 
+    top: 20px; 
+    right: 20px; 
+}
+
+/* Hide links and buttons by default on phone */
+.nav-links, .nav-buttons { 
+    display: none; 
+    width: 100%; 
+    flex-direction: column; 
+    gap: 15px; 
+    margin-top: 20px;
+}
+
+.nav-links a { margin: 0; padding: 12px; border: 1px solid #1f2332; text-align: center;}
+.nav-buttons a { text-align: center; width: 100%; }
+
+/* The class JavaScript will add to show the menu */
+.nav-links.show-menu, .nav-buttons.show-menu {
+    display: flex;
+}
 
     /* 2. Fix Hero Section Text and Buttons */
     .hero { padding: 40px 15px; }
